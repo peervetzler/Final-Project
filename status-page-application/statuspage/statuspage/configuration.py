@@ -14,7 +14,7 @@ DATABASE = {
     'NAME': 'statuspage',         # Database name
     'USER': 'statuspage',               # PostgreSQL username
     'PASSWORD': 'P@ssw0rd',           # PostgreSQL password
-    'HOST': 'localhost',      # Database server
+    'HOST': '3.235.49.128',      # Database server
     'PORT': '5432',               # Database port (leave blank for default)
     'CONN_MAX_AGE': 300,      # Max database connection age
 }
@@ -23,7 +23,7 @@ DATABASE = {
 # for each. Full connection details are required.
 REDIS = {
     'tasks': {
-        'HOST': 'localhost',
+        'HOST': '3.235.49.128',
         'PORT': 6379,
         # Comment out `HOST` and `PORT` lines and uncomment the following if using Redis Sentinel
         # 'SENTINELS': [('mysentinel.redis.example.com', 6379)],
@@ -36,7 +36,7 @@ REDIS = {
         # 'INSECURE_SKIP_TLS_VERIFY': False,
     },
     'caching': {
-        'HOST': 'localhost',
+        'HOST': '3.235.49.128',
         'PORT': 6379,
         # Comment out `HOST` and `PORT` lines and uncomment the following if using Redis Sentinel
         # 'SENTINELS': [('mysentinel.redis.example.com', 6379)],
