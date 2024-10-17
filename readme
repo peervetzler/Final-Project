@@ -1,0 +1,10 @@
+I create a docker file for status page and nginx.
+I build 4 containers- redis, postgressql, nginx, statuspage
+I change:
+        nginx.conf- change the path of static to /app/nginx/static/
+        You can find this in nginx-new branch
+
+        configuration.py - I enter the ip of the EC2 instance for the redis and postgressql 
+        when we create the rds and elastic cache we need to chack the ips...
+
+        
