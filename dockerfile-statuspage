@@ -38,13 +38,8 @@ CMD ["bash", "upgrade.sh"]
 # Define the entry point to run your app using Gunicorn
 WORKDIR /app/status-page-application/statuspage
 
-RUN python3 manage.py createsuperuser --noinput --username 'bar1' --email 'admin@example.com' && \
-    echo "from django.contrib.auth import get_user_model; User = get_user_model(); user = User.objects.get(username='peer'); user.set_password('P@ssw0rd'); user.save()" | python3 manage.py shell
+RUN python3 manage.py createsuperuser --noinput --username '<<name>>' --email '<<gmail>>' && \
+    echo "from django.contrib.auth import get_user_model; User = get_user_model(); user = User.objects.get(username='<<name>>'); user.set_password('<<password>>'); user.save()" | python3 manage.py shell
 
-#RUN python3 manage.py collectstatic --noinput
-#RUN python manage.py migrate
 #Define the entry point to run your app using Gunicorn
-#CMD ["gunicorn", "--pid", "/var/tmp/status-page.pid", "--pythonpath", "/app/status-page-application/statuspage", "--config", "/app/status-page-application/gunicorn.py", "statuspage.wsgi:application", "--bind", "0.0.0.0:8001"]
-
-#RUN /app/status-page-application/venv/bin/gunicorn --pid /var/tmp/status-page.pid --pythonpath /app/status-page-application/statuspage --config /app/status-page-application/gunicorn.py statuspage.wsgi
 CMD ["gunicorn", "-b", "0.0.0.0:8001", "-c", "/app/status-page-application/gunicorn.py", "statuspage.wsgi:application"]
